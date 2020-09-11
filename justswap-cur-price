@@ -52,15 +52,18 @@ token_address = {'TRX' : 'TRX',
 
 
 int_tokens=[]
+int_tokens.append('CHERRY')
 int_tokens.append('CORN')
 int_tokens.append('CRT')
 int_tokens.append('JFI')
 int_tokens.append('JST')
+int_tokens.append('MFI')
 int_tokens.append('SAL')
 int_tokens.append('SRI')
 int_tokens.append('TAI')
 int_tokens.append('USDJ')
 int_tokens.append('USDT')
+
 
 
 base_tokens = ['USDT', 'TRX']
