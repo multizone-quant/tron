@@ -48,6 +48,7 @@ token_address = {'TRX' : 'TRX',
                  'SRI' : 'TX4AHnTb3QHYuMZv6unzZSAQfCoj9pj1mn',  # https://sriracha.io/
                  'MFI' : 'TLuekEszx5fq61rPCLwga9c3RtAVyBc46j',  # https://moonpool.finance/
                  'CHERRY': 'TT6Zfdsxtwn97v5nD2Ewe6v6GAAXpRPP4h', #https://icherry.finance/
+                 'SUN' : 'TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9',
                  }
 
 
