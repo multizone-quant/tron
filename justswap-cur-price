@@ -1,0 +1,121 @@
+# get current price from justswap for interesting tokens
+# created 2020/09/11
+# 
+import json
+import requests
+import time
+
+__url__ = 'https://api.justswap.io/v1/'
+
+import logging
+from my_utils.j_oss import *
+
+log_name = '.\\defi_price_history.log'
+logging.basicConfig(filename=log_name, level=logging.INFO)
+
+def get_all_pairs():
+
+    cmd = 'tradepairlist'
+    url = __url__ + cmd
+    response = ""
+    cnt2 = 0
+
+    while str(response) != '<Response [200]>' and cnt2 < 15:
+        cnt2 += 1
+        print("requests all pairs")
+        try :
+            response = requests.get(url)
+        except Exception as e:
+            print(e)
+            time.sleep(20)
+            continue
+        if str(response) != '<Response [200]>':
+            time.sleep(15)
+
+    rets = response.json()
+    return rets
+
+token_address = {'TRX' : 'TRX',
+                 'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa', 
+                 'USDT' : 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+                 'CORN': 'TDAcEgFppHPMfsJdr3kdhUhDFWKTZQVMM5',   # https://medium.com/@cornfieldfarm/corn-innovative-defi-mining-pool-f10a4558e9a5
+                 'CRT': 'TZ7EvoZdEet2P9E2DKf9CtKf6EAyFwRAS3',   # https://github.com/carrotFinance/carrot-finance/blob/master/README.md
+                 'JFI': 'TN7zQd2oCCguSQykZ437tZzLEaGJ7EGyha',  # https://jackpool.finance/jfi 
+                 'PEARL': 'TGbu32VEGpS4kDmjrmn5ZZJgUyHQiaweoq', # https://pearl.finance/rules
+                 'JST' : 'TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9', # https://pearl.finance/rules
+                 'USDJ' : 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT',
+                 'TAI' : 'TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P', # https://tronscan.io/#/contract/TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P/code
+                 'SRI' : 'TX4AHnTb3QHYuMZv6unzZSAQfCoj9pj1mn', 
+                 }
+
+int_tokens=[]
+int_tokens.append('CORN')
+int_tokens.append('CRT')
+int_tokens.append('JFI')
+int_tokens.append('JST')
+int_tokens.append('SAL')
+int_tokens.append('SRI')
+int_tokens.append('TAI')
+int_tokens.append('USDJ')
+int_tokens.append('USDT')
+
+
+base_tokens = ['USDT', 'TRX']
+# get all pairs
+
+def add_log_defi_tron(info) :
+    tt = TODAY + ':' + time.strftime("%H%M%S") + ' '
+    prices = ''
+    for each in int_tokens :
+        if each in info :
+            prices += each + ' ' + info[each] + ' '
+    ss = tt + prices
+    logging.info(ss)
+
+
+if 0 :
+    cnt = 0
+    for key, each in pairs.items() :
+        cnt += 1
+        if each['base_symbol'] == 'USDT' :
+            print(each['quote_symbol'])
+            if cnt % 20 == 0 : 
+                print('')
+            if each['quote_symbol'] in int_tokens :
+                print(" 1 ", each['base_symbol'], ' : ', each['price'], ' ', each['quote_symbol'])
+
+    print(cnt)
+    for key, each in pairs.items() :
+        if each['base_symbol'] == 'TRX' :
+#            if each['quote_symbol'] == 'CORN' :
+#               print(each['quote_symbol'], base_id)
+            if each['quote_symbol'] in int_tokens :
+                if token_address[each['quote_symbol']] == each['base_id']  :
+                    if each['price'] != '0' : 
+                        price = each['price'].split('.')
+                        price1 = '.'+price[1][0:2]
+                        print(format(each['base_symbol'],"%6s"), ' : ', format(price[0]+price1, "%8s"), ' ', each['quote_symbol'])
+
+# https://api.justswap.io/v1/tradepairlist
+
+def print_cur_defi_tron_price() :
+    price_list = {}
+    pairs = get_all_pairs()
+    for key, each in pairs.items() :
+        if each['base_symbol'] in int_tokens  :
+    #        if each['base_symbol'] == 'CORN' :
+    #           print(each['quote_symbol'], each['base_id'])
+            if each['quote_symbol'] in base_tokens :
+                if token_address[each['base_symbol']] == each['base_id']  :
+                    if each['price'] != '0' :
+                        price = each['price'].split('.')
+                        price1 = '.'+price[1][0:2]
+                        print(format(each['base_symbol'],"6s"), ' : ', format(price[0]+price1, "8s"), ' ', each['quote_symbol'] )
+                        price_list[each['base_symbol']] =  price[0]+price1
+    add_log_defi_tron(price_list)
+
+while(1) :
+    print_cur_defi_tron_price()
+    time.sleep(60)
+
+print('')
