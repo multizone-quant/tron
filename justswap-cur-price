@@ -52,18 +52,19 @@ token_address = {'TRX' : 'TRX',
 
 
 int_tokens=[]
-int_tokens.append('CHERRY')
+
 int_tokens.append('CORN')
 int_tokens.append('CRT')
 int_tokens.append('JFI')
 int_tokens.append('JST')
-int_tokens.append('MFI')
 int_tokens.append('SAL')
 int_tokens.append('SRI')
 int_tokens.append('TAI')
 int_tokens.append('USDJ')
 int_tokens.append('USDT')
-
+int_tokens.append('CHERRY')
+int_tokens.append('MFI')
+int_tokens.append('USDJ/USDT')
 
 
 base_tokens = ['USDT', 'TRX']
@@ -107,6 +108,8 @@ if 0 :
 def print_cur_defi_tron_price() :
     price_list = {}
     pairs = get_all_pairs()
+    usdt = '0.0'
+    usdj = '0.0'    
     for key, each in pairs.items() :
         if each['base_symbol'] in int_tokens  :
     #        if each['base_symbol'] == 'CORN' :
@@ -118,6 +121,16 @@ def print_cur_defi_tron_price() :
                         price1 = '.'+price[1][0:2]
                         print(format(each['base_symbol'],"6s"), ' : ', format(price[0]+price1, "8s"), ' ', each['quote_symbol'] )
                         price_list[each['base_symbol']] =  price[0]+price1
+                        # save usdt, usdj price
+                        if each['base_symbol'] == 'USDT' :
+                            usdt = price[0]+price1
+                        elif each['base_symbol'] == 'USDJ' :
+                            usdj = price[0]+price1
+    # if usdj price exist, save usdj/usdt 
+    if usdj != '0.0' :
+        p = float(usdj)/float(usdt)
+        price_list['USDJ/USDT'] =  format(p, "4.3f")
+        print('usdj/usdt : ', format(p, "4.3f") )
     add_log_defi_tron(price_list)
 
 while(1) :
