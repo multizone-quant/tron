@@ -65,6 +65,7 @@ int_tokens.append('USDJ')
 int_tokens.append('USDT')
 int_tokens.append('CHERRY')
 int_tokens.append('MFI')
+int_tokens.append('SUN')
 int_tokens.append('USDJ/USDT')
 
 
