@@ -36,7 +36,7 @@ def get_all_pairs():
     return rets
 
 token_address = {'TRX' : 'TRX',
-                 'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa', 
+                 'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa',  # https://salmonswap.io/
                  'USDT' : 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
                  'CORN': 'TDAcEgFppHPMfsJdr3kdhUhDFWKTZQVMM5',   # https://medium.com/@cornfieldfarm/corn-innovative-defi-mining-pool-f10a4558e9a5
                  'CRT': 'TZ7EvoZdEet2P9E2DKf9CtKf6EAyFwRAS3',   # https://github.com/carrotFinance/carrot-finance/blob/master/README.md
@@ -45,8 +45,11 @@ token_address = {'TRX' : 'TRX',
                  'JST' : 'TCFLL5dx5ZJdKnWuesXxi1VPwjLVmWZZy9', # https://pearl.finance/rules
                  'USDJ' : 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT',
                  'TAI' : 'TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P', # https://tronscan.io/#/contract/TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P/code
-                 'SRI' : 'TX4AHnTb3QHYuMZv6unzZSAQfCoj9pj1mn', 
+                 'SRI' : 'TX4AHnTb3QHYuMZv6unzZSAQfCoj9pj1mn',  # https://sriracha.io/
+                 'MFI' : 'TLuekEszx5fq61rPCLwga9c3RtAVyBc46j',  # https://moonpool.finance/
+                 'CHERRY': 'TT6Zfdsxtwn97v5nD2Ewe6v6GAAXpRPP4h', #https://icherry.finance/
                  }
+
 
 int_tokens=[]
 int_tokens.append('CORN')
