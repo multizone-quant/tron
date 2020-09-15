@@ -36,7 +36,8 @@ def get_all_pairs():
     return rets
 
 token_address = {'TRX' : 'TRX',
-                 'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa',  # https://salmonswap.io/
+#                 'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa',  # https://salmonswap.io/ swap to slm
+                 'SLM': 'TEbKj6dFUSs6Q6dW5F9R4DZwTWKV9EV2BR',  # https://salmonswap.io/menu
                  'USDT' : 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
 #                 'CORN': 'TDAcEgFppHPMfsJdr3kdhUhDFWKTZQVMM5',   # https://medium.com/@cornfieldfarm/corn-innovative-defi-mining-pool-f10a4558e9a5
                  'CRT': 'TZ7EvoZdEet2P9E2DKf9CtKf6EAyFwRAS3',   # https://github.com/carrotFinance/carrot-finance/blob/master/README.md
@@ -61,7 +62,7 @@ int_tokens.append('CORN')
 int_tokens.append('CRT')
 int_tokens.append('JFI')
 int_tokens.append('JST')
-int_tokens.append('SAL')
+int_tokens.append('SLM')
 int_tokens.append('SRI')
 int_tokens.append('TAI')
 int_tokens.append('USDJ')
