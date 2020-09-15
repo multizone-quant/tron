@@ -38,7 +38,7 @@ def get_all_pairs():
 token_address = {'TRX' : 'TRX',
                  'SAL': 'TXyrq6xE49dJhBGBYRH4pZzq9QdXNKWUQa',  # https://salmonswap.io/
                  'USDT' : 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
-                 'CORN': 'TDAcEgFppHPMfsJdr3kdhUhDFWKTZQVMM5',   # https://medium.com/@cornfieldfarm/corn-innovative-defi-mining-pool-f10a4558e9a5
+#                 'CORN': 'TDAcEgFppHPMfsJdr3kdhUhDFWKTZQVMM5',   # https://medium.com/@cornfieldfarm/corn-innovative-defi-mining-pool-f10a4558e9a5
                  'CRT': 'TZ7EvoZdEet2P9E2DKf9CtKf6EAyFwRAS3',   # https://github.com/carrotFinance/carrot-finance/blob/master/README.md
                  'JFI': 'TN7zQd2oCCguSQykZ437tZzLEaGJ7EGyha',  # https://jackpool.finance/jfi 
                  'PEARL': 'TGbu32VEGpS4kDmjrmn5ZZJgUyHQiaweoq', # https://pearl.finance/rules
@@ -47,8 +47,11 @@ token_address = {'TRX' : 'TRX',
                  'TAI' : 'TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P', # https://tronscan.io/#/contract/TRwS7apsNdRGzMBfhB2hVC4RhqfubUYZ8P/code
                  'SRI' : 'TX4AHnTb3QHYuMZv6unzZSAQfCoj9pj1mn',  # https://sriracha.io/
                  'MFI' : 'TLuekEszx5fq61rPCLwga9c3RtAVyBc46j',  # https://moonpool.finance/
-                 'CHERRY': 'TT6Zfdsxtwn97v5nD2Ewe6v6GAAXpRPP4h', #https://icherry.finance/
-                 'SUN' : 'TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9',
+#                 'CHERRY': 'TT6Zfdsxtwn97v5nD2Ewe6v6GAAXpRPP4h', #https://icherry.finance/  swap to ucherry
+                 'ICHERRY': 'TKNRLbmAUGR8nu2K95MUCyg3P1pKuTPf4A', #https://icherry.finance/
+                'SUN' : 'TKkeiboTkxXKJpbmVFbv4a8ov5rAfRDMf9',
+                 'PKX' : 'TW1vcuBauiNDAo2YuQVahGPgQ1qq61Rnf5',
+                 'VIT' : 'TUGfKWRyFfAGPP96UkpUZc7LSUa4KsKRMQ', # https://vitamin.support/vitamin/detail1/8
                  }
 
 
@@ -63,11 +66,12 @@ int_tokens.append('SRI')
 int_tokens.append('TAI')
 int_tokens.append('USDJ')
 int_tokens.append('USDT')
-int_tokens.append('CHERRY')
+int_tokens.append('ICHERRY')
 int_tokens.append('MFI')
 int_tokens.append('SUN')
 int_tokens.append('USDJ/USDT')
-
+int_tokens.append('PKX')
+int_tokens.append('VIT')
 
 base_tokens = ['USDT', 'TRX']
 # get all pairs
